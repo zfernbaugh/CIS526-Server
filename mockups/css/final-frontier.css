@@ -1,0 +1,163 @@
+/** final-frontier.css
+ * CSS rules for the final frontier CMS app 
+ * 
+ * Place your custom CSS rules in this document 
+ */
+
+@font-face {
+    font-family: "tng";
+    src: url("/assets/TNG_Credits.woff");
+    src: url("/assets/TNG_Credits.ttf");
+}
+
+body {
+    font-family: Verdana;
+}
+
+h1, h2, h3, h4 {
+    font-family: "tng", Verdana;
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input, button {
+    alignment-adjust: center;
+}
+
+#header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#card-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+video {
+    display: inline-block;
+    max-width: 100%;
+}
+
+@media (min-width: 490px) {
+    #card-holder {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows:  auto;
+    }
+}
+
+#content, .card {
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 5px;
+    margin: 6px;
+    box-shadow: 5px 5px grey;
+    box-sizing: border-box;
+    min-height: 300px;
+}
+
+#content {
+    width: calc(100% - 15px);
+}
+
+#content > audio {
+    max-width: 100%;
+}
+
+#flex {
+    display: flex;
+    align-content: space-around;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#flex > img {
+    display: none;
+    order: 4;
+    margin-bottom: 1rem;
+    
+}
+
+#flex img:first-of-type {
+    display: block;
+    order: 1
+}
+
+#flex img:nth-child(3) {
+    order: 2
+}
+
+#flex > div {
+    order: 3;
+}
+
+#flex > * {
+    max-width: 45%;
+}
+
+#content.expanded #flex > * {
+    max-width: 30%;
+}
+
+#content.expanded #flex img {
+    display: block;
+}
+
+@media (max-width: 490px) {    
+    #content.expanded #flex {
+        flex-direction:column;
+    }
+    
+    #content.expanded #flex > div {
+        order: 0;
+    }
+    
+    #content.expanded #flex > *
+    {
+        max-width: 100%;
+    }
+}
+
+#content > #article {
+    max-height: 10.2rem;
+    overflow: hidden;
+}
+
+#content > #close {
+    display: none;
+}
+
+#content.expanded > #close {
+    display: inline-block;
+    margin: 10px;
+    position: absolute;
+}
+
+
+#content > #read-more, #content > #see-gallery {
+    display: block;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content.expanded {
+    display: block;
+    width: 96vw;
+    height: 96vh;
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
+    overflow: auto;
+}
+
+#content.expanded > #article {
+    max-height: inherit;
+    overflow: default;
+}
+
+#content.expanded > #read-more {
+    display: none;
+}
