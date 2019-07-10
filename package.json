@@ -1,0 +1,23 @@
+{
+  "name": "final-frontier-cms",
+  "version": "1.0.0",
+  "description": "npm package for assignment 3",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"aardvark\";",
+    "start": "node server.js;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zfernbaugh/CIS526-Server.git"
+  },
+  "keywords": [
+    "assignment_3"
+  ],
+  "author": "Zach Fernbaugh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zfernbaugh/CIS526-Server/issues"
+  },
+  "homepage": "https://github.com/zfernbaugh/CIS526-Server#readme"
+}

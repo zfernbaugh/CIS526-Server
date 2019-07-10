@@ -1,5 +1,7 @@
+"use strict";
+
 var http = require('http');
-var requestHandler = require('./request-handler');
+var requestHandler = require('./src/request-handler');
 var port = 3000;
 
 var server = http.createServer(requestHandler);

@@ -5,6 +5,16 @@
  */
 module.exports = function generateCardHTML(cardData) {
     // TODO: Generate appropriate HTML
+    switch (cardData.type) {
+        case "audio":
+            return generateAudioCardHTML(cardData);
+        case "video":
+            return generateVideoCardHTML(cardData);
+        case "gallery":
+            return generateGalleryCardHTML(cardData);
+        case "article":
+            return generateArticleCardHTML(cardData);
+    }
 }
 
 /** @function generateAudioCardHTML
@@ -12,8 +22,14 @@ module.exports = function generateCardHTML(cardData) {
  * @param {object} cardData - the audio card data 
  * @returns {string} the generated html 
  */
-generateAudioCardHTML(cardData) {
+function generateAudioCardHTML(cardData) {
     // TODO: Generate appropriate HTML
+    var html = `
+        <h2>${cardData.title}</h2>
+        <audio controls src="${decodeURIComponent(cardData.source)}">Unable to load</audio>
+        <p>${cardData.description}</p>
+        `
+    return html;
 }
 
 /** @function generateArticleCardHTML
@@ -21,8 +37,9 @@ generateAudioCardHTML(cardData) {
  * @param {object} cardData - the article card data 
  * @returns {string} the generated html 
  */
-generateArticleCardHTML(cardData) {
+function generateArticleCardHTML(cardData) {
     // TODO: Generate appropriate HTML
+    return cardData.body;
 }
 
 /** @function generateGalleryCardHTML
@@ -30,8 +47,21 @@ generateArticleCardHTML(cardData) {
  * @param {object} cardData - the gallery card data 
  * @returns {string} the generated html 
  */
-generateGalleryCardHTML(cardData) {
+function generateGalleryCardHTML(cardData) {
     // TODO: Generate appropriate HTML
+    var images = cardData.images.map(function(image) {
+      return `<img src="${decodeURIComponent(image)}">`;
+    });
+    var html = `
+        <h2>${cardData.title}</h2>
+        <div id="flex">
+            <div>
+                ${cardData.description}
+            </div>
+            ${images.join("")}
+        </div>
+        `
+    return html;
 }
 
 /** @function generateVideoCardHTML
@@ -39,6 +69,12 @@ generateGalleryCardHTML(cardData) {
  * @param {object} cardData - the video card data 
  * @returns {string} the generated html 
  */
-generateVideoCardHTML(cardData) {
+function generateVideoCardHTML(cardData) {
     // TODO: Generate appropriate HTML
+    var html =`
+        <h2>${cardData.title}</h2>
+        <video controls src="${decodeURIComponent(cardData.source)}">Unable to load</video>
+        <p>${cardData.description}</p>
+        `
+    return html;
 }

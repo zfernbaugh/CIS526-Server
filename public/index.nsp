@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Final Frontier</title>
+    <link href="css/final-frontier.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <h1>Final Frontier</h1>
+    <div id="header">
+        <input type="text">
+        <button>Search</button>
+    </div>
+    <div id="card-holder">
+    ${
+        cards.map(function(card){
+            return `<div id="card-${card.id}" class="card"><div class="content">${generateCardHtml(card)}</div></div>`;
+        }).join("")
+    }  
+    </div>
+  <script src="js/final-frontier.js"></script>
+  </body>
+</html>

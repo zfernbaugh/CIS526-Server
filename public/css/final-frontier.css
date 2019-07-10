@@ -6,8 +6,8 @@
 
 @font-face {
     font-family: "tng";
-    src: url("/assets/TNG_Credits.woff");
-    src: url("/assets/TNG_Credits.ttf");
+    src: url("../assets/TNG_Credits.woff") format("truetype");
+    src: url("../assets/TNG_Credits.ttf") format("woff");
 }
 
 body {
@@ -48,7 +48,7 @@ video {
     }
 }
 
-#content, .card {
+.card {
     border-radius: 10px;
     border: 2px solid black;
     padding: 5px;
@@ -56,13 +56,15 @@ video {
     box-shadow: 5px 5px grey;
     box-sizing: border-box;
     min-height: 300px;
+    max-height: 600px;
+    overflow: hidden;
 }
 
-#content {
+.content {
     width: calc(100% - 15px);
 }
 
-#content > audio {
+.content > audio {
     max-width: 100%;
 }
 
@@ -97,53 +99,53 @@ video {
     max-width: 45%;
 }
 
-#content.expanded #flex > * {
+.content.expanded #flex > * {
     max-width: 30%;
 }
 
-#content.expanded #flex img {
+.content.expanded #flex img {
     display: block;
 }
 
 @media (max-width: 490px) {    
-    #content.expanded #flex {
+    .content.expanded #flex {
         flex-direction:column;
     }
     
-    #content.expanded #flex > div {
+    .content.expanded #flex > div {
         order: 0;
     }
     
-    #content.expanded #flex > *
+    .content.expanded #flex > *
     {
         max-width: 100%;
     }
 }
 
-#content > #article {
+.content > #article {
     max-height: 10.2rem;
     overflow: hidden;
 }
 
-#content > #close {
+.content > #close {
     display: none;
 }
 
-#content.expanded > #close {
+.content.expanded > #close {
     display: inline-block;
     margin: 10px;
     position: absolute;
 }
 
 
-#content > #read-more, #content > #see-gallery {
+.content > #read-more, .content > #see-gallery {
     display: block;
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
 }
 
-#content.expanded {
+.content.expanded {
     display: block;
     width: 96vw;
     height: 96vh;
@@ -153,11 +155,11 @@ video {
     overflow: auto;
 }
 
-#content.expanded > #article {
+.content.expanded > #article {
     max-height: inherit;
     overflow: default;
 }
 
-#content.expanded > #read-more {
+.content.expanded > #read-more {
     display: none;
 }
